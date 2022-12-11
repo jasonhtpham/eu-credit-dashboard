@@ -35,11 +35,19 @@ class Layout {
           "isFavourite": true
         }),
         new MenuItem({
-          "name": "Example",
+          "name": "Products",
           "type": "button",
-          "icon": "bytesize:code",
-          "helpingAttribute": "/examples",
-          "customTitle": "Example Code File",
+          "icon": "bytesize:work",
+          "helpingAttribute": "/products",
+          "customTitle": "Products Manager",
+          "isFavourite": true
+        }),
+        new MenuItem({
+          "name": "Transactions",
+          "type": "button",
+          "icon": "codicon:arrow-swap",
+          "helpingAttribute": "/products",
+          "customTitle": "Transactions Manager",
           "isFavourite": true
         }),
         new MenuItem({

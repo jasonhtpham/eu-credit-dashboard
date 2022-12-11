@@ -9,6 +9,8 @@ import { Home } from './dependants/Home/Home';
 import { MobileMenu } from './dependants/mobileMenu/mobileMenu';
 import { Example } from './dependants/Example/Example';
 import { UsersManager } from './dependants/UsersManager/UsersManager';
+import { Products } from './dependants/Product/Product';
+
 export {
   Example,
   Login,
@@ -18,4 +20,5 @@ export {
   FourOFour,
   AuthCallback,
   UsersManager,
+  Products
 };

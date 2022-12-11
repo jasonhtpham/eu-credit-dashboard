@@ -85,7 +85,7 @@ class API {
 
   async getUsers() {
     return axiosInstance
-      .get("admin/getUser", {
+      .get("admin/usermanagement/user", {
         headers: {
           authorization: "Bearer " + AccessToken,
         },
@@ -94,6 +94,31 @@ class API {
         return generateSuccess(response.data.data);
       })
       .catch((error) => errorHelper(error));
+  }
+
+  async getProducts(skip, limit) {
+    return axiosInstance
+      .get("admin/products/requests", {
+        params: { skip, limit }, headers: {
+          authorization: "Bearer " + AccessToken,
+        },
+      })
+      .then((response) => {
+        return generateSuccess(response.data.data);
+      })
+      .catch((error) => errorHelper(error));
+  }
+
+  async approveProduct(productId) {
+    return axiosInstance.put(`admin/products/${productId}/approve`, {}, {
+      headers: {
+        authorization: "Bearer " + AccessToken
+      }
+    })
+      .then((response) => {
+        return generateSuccess(response.data.data);
+      })
+      .catch(error => errorHelper(error));
   }
 }
 const instance = new API();
