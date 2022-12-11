@@ -43,14 +43,6 @@ class Layout {
           "isFavourite": true
         }),
         new MenuItem({
-          "name": "Transactions",
-          "type": "button",
-          "icon": "codicon:arrow-swap",
-          "helpingAttribute": "/products",
-          "customTitle": "Transactions Manager",
-          "isFavourite": true
-        }),
-        new MenuItem({
           "name": "Users Manager",
           "type": "button",
           "icon": "bytesize:user",

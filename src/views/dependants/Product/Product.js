@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { format, formatDistanceToNow } from 'date-fns';
 import { API } from 'helpers';
 import { EnhancedTable, EnhancedModal, notify } from 'components/index';
 import { useIsMountedRef } from '../../../helpers/hooks/index';
-import { Box, Container, Grid, ImageList, ImageListItem } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
+import { KycModalContent } from './KycModalContent';
 
 const ROWS_PER_PAGE = 25;
 const IGNORE_KEYS = ['_id', 'userId',
@@ -28,6 +29,7 @@ export const Products = () => {
         let products = response.data.data;
 
         products.forEach((product) => {
+          console.log(product);
           const formattedexpDate = format(new Date(product.expiryDate), 'yyyy-MM-dd');
           const formattedUpdateDate = formatDistanceToNow(new Date(product.updatedAt), { includeSeconds: true });
           product.expiryDate = formattedexpDate;
@@ -47,31 +49,6 @@ export const Products = () => {
     }
 
   }, [isMounted]);
-
-  const modalContent = (
-    <React.Fragment>
-      <Grid container spacing={1} justifyContent='center' alignItems='flex-start'>
-        <Grid item xs={12} sm={6}>
-          <ImageList cols={2} gap={10}>
-            <ImageListItem key={`kycSignature_${selectedProduct?._id}`}>
-              <img
-                src={`${selectedProduct?.sellerKyc.kycSignature}`}
-                alt={selectedProduct?.name}
-                loading="lazy"
-              />
-            </ImageListItem>
-            <ImageListItem key={`documentUrl_${selectedProduct?._id}`}>
-              <img
-                src={`${selectedProduct?.sellerKyc.documentUrl}`}
-                alt={selectedProduct?.name}
-                loading="lazy"
-              />
-            </ImageListItem>
-          </ImageList>
-        </Grid>
-      </Grid>
-    </React.Fragment>
-  );
 
   useEffect(() => {
     getProducts();
@@ -106,9 +83,19 @@ export const Products = () => {
       }}>
 
         <EnhancedModal
-          dialogTitle={'Verify product creation'}
+          dialogTitle={<Typography variant="h3" gutterBottom>
+            Verify {selectedProduct?.status === 'PENDING' ? "Seller" : "Buyer"} KYC
+          </Typography>}
           isOpen={modalOpen}
-          dialogContent={modalContent}
+          dialogContent={<KycModalContent
+            name={selectedProduct?.name}
+            id={selectedProduct?._id}
+            kyc={
+              selectedProduct?.status === 'PENDING'
+                ? selectedProduct?.sellerKyc
+                : selectedProduct?.activeTransaction?.buyerKyc
+            }
+          />}
           submitButtonName={'Approve'}
           cancelButtonName={'Reject'}
           options={{
@@ -133,8 +120,11 @@ export const Products = () => {
                 label: 'Verify',
                 type: 'button',
                 function: (e, product) => {
-                  setSelectedProduct(product);
-                  setModalOpen(true);
+                  if (isMounted) {
+                    setSelectedProduct(product);
+                    setModalOpen(true);
+                  }
+
                 }
               }
             ]
