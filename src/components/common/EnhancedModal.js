@@ -79,7 +79,7 @@ export const EnhancedModal = (props) => {
     }
   };
   let content = (
-    <Dialog fullWidth={true} open={isOpen} onClose={onClose} aria-labelledby="form-dialog-title"  >
+    <Dialog fullWidth={true} maxWidth="md" open={isOpen} onClose={onClose} aria-labelledby="form-dialog-title"  >
       <DialogTitle id="form-dialog-title">{_DialogTitle}</DialogTitle>
       <DialogContent>{_DialogContent}</DialogContent>
       <DialogActions>
