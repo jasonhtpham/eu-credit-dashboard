@@ -79,7 +79,7 @@ export const KycModalContent = (props) => {
               primary={
                 <React.Fragment>
                   <Typography>
-                    {props.kyc.sectionA.a5}
+                    {props.kyc.sectionA.a5 ? "yes" : "no"}
                   </Typography>
                 </React.Fragment>
               }
@@ -103,7 +103,7 @@ export const KycModalContent = (props) => {
               primary={
                 <React.Fragment>
                   <Typography>
-                    {props.kyc.sectionA.a7}
+                    {props.kyc.sectionA.a7 ? "yes" : "no"}
                   </Typography>
                 </React.Fragment>
               }
