@@ -30,7 +30,7 @@ export const Home = () => {
         color="textPrimary"
         variant="h3"
       >
-        React Frontend Boilerplate
+        WeCredits
       </Typography>
       <Typography
         align="center"
@@ -38,7 +38,7 @@ export const Home = () => {
         variant="body1"
         sx={{ py: 3 }}
       >
-        To explore more visit the examples tab on the left.
+        {"To manage products and transactions please go to 'Products' in the menu on the left."}
       </Typography>
     </Container>
   </Box>);
