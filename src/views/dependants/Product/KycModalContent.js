@@ -35,7 +35,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Cognome e nome/Ragione sociale'}
             />
           </ListItem>
           <ListItem>
@@ -47,7 +47,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Codice fiscale/p.iva'}
             />
           </ListItem>
           <ListItem>
@@ -59,7 +59,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Nazionalità'}
             />
           </ListItem>
           <ListItem>
@@ -71,7 +71,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Sede fiscale'}
             />
           </ListItem>
           <ListItem>
@@ -83,7 +83,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Già raccolti in occasione di precedente prestazione professionale (specificare)'}
             />
           </ListItem>
           <ListItem>
@@ -95,7 +95,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={''}
             />
           </ListItem>
           <ListItem>
@@ -107,7 +107,7 @@ export const KycModalContent = (props) => {
                   </Typography>
                 </React.Fragment>
               }
-              secondary={'Hmmmmm?'}
+              secondary={'Come da copia dei documenti di identificazione e di codice fiscale allegati.'}
             />
           </ListItem>
         </List>
