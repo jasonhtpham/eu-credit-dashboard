@@ -1,6 +1,7 @@
 {
   "name": "degicredit-dashboard",
   "version": "3.0.0",
+  "homepage": "https://jasonhtpham.github.io",
   "private": true,
   "dependencies": {
     "@babel/core": "~7.17.5",
@@ -37,7 +38,9 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "resolutions": {
     "lodash": "~4.17.15",
@@ -70,6 +73,7 @@
     "easter-egg-collection": "~1.4.56",
     "eslint-plugin-react": "~7.27.0",
     "eslint-plugin-react-hooks": "~4.2.0",
+    "gh-pages": "^4.0.0",
     "react-error-overlay": "~6.0.9"
   }
 }

@@ -41,11 +41,11 @@ export const Products = () => {
       }
       else {
         setProducts([]);
-        notify('Failed to Fetch Users List');
+        notify('Failed to Fetch Products List');
       }
     } catch (err) {
       setProducts([]);
-      notify('Failed to Fetch Users List');
+      notify('Failed to Fetch Products List');
     }
 
   }, [isMounted]);
